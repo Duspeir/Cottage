@@ -1,0 +1,9 @@
+.myInput{
+    width: 80%;
+    text-decoration: none;
+    font-family: Gill Sans, sans-serif;
+    font-size: 20px;
+    padding: 5px 10px;
+    border: 2px solid forestgreen;
+    border-radius: 8px;
+}

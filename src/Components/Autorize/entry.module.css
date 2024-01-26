@@ -1,0 +1,18 @@
+.entry_container{
+    min-width: 450px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.head{
+    margin-top: 20px;
+}
+
+.err{
+    border: 2px red solid;
+    padding: 5px 15px;
+    border-radius: 5px;
+}

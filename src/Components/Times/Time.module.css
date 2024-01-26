@@ -1,0 +1,16 @@
+.time_cn{
+    background-color: rgb(195, 255, 223);
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.week{
+    font-size: 26px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: left;
+}

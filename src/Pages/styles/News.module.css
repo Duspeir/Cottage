@@ -1,0 +1,8 @@
+.container{
+    width: calc(95% - 300px);
+}
+
+.load{
+    margin: 30px;
+    font-size: 26px;
+}

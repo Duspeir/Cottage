@@ -1,0 +1,16 @@
+.info{
+    margin: 40px 0 0 20px;
+    font-size: 18px;
+    /* text-align: center; */
+}
+
+.cn{
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cn p, li {
+    font-size: 25px;
+}
