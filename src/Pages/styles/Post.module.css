@@ -1,0 +1,45 @@
+.cn {
+    font-size: 22px;
+    width: 80%;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.inter {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-flow: column;
+}
+
+.text_title{
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.text_body{
+    background-color: azure;
+    border: 1px solid rgb(197, 201, 196);
+    padding: 15px;
+    min-height: 40vh;
+}
+
+.title{
+    position: relative;
+}
+
+.title::before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 120%;
+    height: 2px;
+    left: -10%;
+    bottom: 0;
+    background-color: black;
+}
+
+.btn {
+    text-align: end;
+}

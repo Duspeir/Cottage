@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+}
+
+body{
+    height: 100vh;
+    background-color: rgb(230, 243, 255);
+    width: 100%;
+}
+
+#root {
+    padding-top: 60px;
+    top: 60px;
+    align-items: center;
+    /* height: calc(100vh - 60px); */
+    min-width: 450px;
+    display: flex;
+    flex-direction: column;
+    font-family: Gill Sans, sans-serif;
+}

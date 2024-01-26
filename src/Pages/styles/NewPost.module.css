@@ -1,0 +1,86 @@
+.body{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.choices{
+    text-align: center;
+    margin-top: 30px;
+    padding-left: 20px;
+    font-size: 32px;
+    width: 25%;
+    border-right: 3px solid black;
+}
+
+.greet{
+    border-bottom: 3px solid black;
+    padding-bottom: 10px;
+}
+
+.profButtons{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.profOptions{
+    height: 35px;
+    position: relative;
+    color: black;
+    background:aliceblue;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: Gill Sans, sans-serif;
+    font-size: 20px;
+    min-width: fit-content;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.profOptions:hover{
+    background-color: rgb(200, 255, 200);
+    border: 2px solid rgb(0, 206, 0);
+}
+
+.cn {
+    width: 70%;
+    align-items: center;
+}
+
+.inter {
+    min-width: 100%;
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-flow: column;
+}
+
+.text{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 15px;
+}
+
+textarea{
+    width: 80%;
+    height: 40vh;
+    text-decoration: none;
+    font-family: Gill Sans, sans-serif;
+    font-size: 20px;
+    padding: 5px 10px;
+    border: 2px solid forestgreen;
+    border-radius: 8px;
+    resize: none;
+}
+
+.btn {
+    width: 80%;
+    text-align: end;
+}
