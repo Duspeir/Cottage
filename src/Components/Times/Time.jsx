@@ -1,0 +1,16 @@
+import React from "react";
+import * as styles from './Time.module.css'
+
+const Time = (props) => {
+
+  return (
+    <div className={styles.time_cn}>
+      <div className={styles.week}>
+        <h5 className={styles.title}>{props.post.name}</h5>
+        <p>{props.post.time}</p>
+      </div>
+    </div>
+  )
+  }
+  
+export default Time;
