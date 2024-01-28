@@ -26,7 +26,7 @@ function Login() {
           if(data.length===0){
             setError('Неверные данные!');
           } else{
-            navigate('/')
+            navigate('/profile')
             setError(null)
             setLoggedIn(login)
             if(data[0].dm === true){

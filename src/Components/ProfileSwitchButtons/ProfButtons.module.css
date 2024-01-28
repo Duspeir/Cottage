@@ -1,0 +1,25 @@
+.profButtons{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.profOptions{
+    height: 35px;
+    position: relative;
+    color: black;
+    background:aliceblue;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: Gill Sans, sans-serif;
+    font-size: 20px;
+    min-width: fit-content;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.profOptions:hover{
+    background-color: rgb(200, 255, 200);
+    border: 2px solid rgb(0, 206, 0);
+}

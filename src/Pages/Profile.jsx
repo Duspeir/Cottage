@@ -1,9 +1,10 @@
 import MyInput from '../Components/UI/input/MyInput'
-import * as styles from './styles/NewPost.module.css'
+import * as styles from './styles/Profile.module.css'
 import MyButton from '../Components/UI/button/MyButton'
 import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context'
+import ProfButtons from '../Components/ProfileSwitchButtons/PrfoButtons'
 function Profile() {
     const [title, setTitle] = useState('')
     const [text, setText] = useState('')
@@ -29,12 +30,7 @@ function Profile() {
                 <div className={styles.greet}>
                     <p>Hello, {loggedIn}!</p>
                 </div>
-                <div className={styles.profButtons}>
-                    <button className={styles.profOptions}>Нажми</button>
-                    <button className={styles.profOptions}>Нажми</button>
-                    <button className={styles.profOptions}>Нажми</button>
-                    <button className={styles.profOptions}>Нажми</button>
-                </div>
+                <ProfButtons/>
             </div>
             <div className={styles.cn}>
                 <form onSubmit={post} className={styles.inter}>
