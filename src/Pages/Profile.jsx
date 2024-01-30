@@ -1,27 +1,17 @@
-import MyInput from '../Components/UI/input/MyInput'
 import * as styles from './styles/Profile.module.css'
-import MyButton from '../Components/UI/button/MyButton'
 import { useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context'
-import ProfButtons from '../Components/ProfileSwitchButtons/PrfoButtons'
-function Profile() {
-    const [title, setTitle] = useState('')
-    const [text, setText] = useState('')
-    const navigate = useNavigate()
-    const {loggedIn, isDm} = useContext(AuthContext)
-    
-    const post = (e) => {
-        e.preventDefault();
-        const Post = {title, text};
+import ProfButtons from '../Components/ProfileElements/SwitchButtons/PrfoButtons'
+import NewPost from '../Components/ProfileElements/AddPost/NewPost'
+import About from '../Components/ProfileElements/About/About'
+import TimeRed from '../Components/ProfileElements/Timetable/TimeRed'
 
-        fetch('http://localhost:5001/posts', {
-            method: 'POST',
-            headers: {"Content-type": "application/json"},
-            body: JSON.stringify(Post)
-        }).then(()=>{
-            navigate("/news")
-        })
+function Profile() {
+    const {loggedIn, isDm} = useContext(AuthContext)
+    const [state, setState] = useState(1);
+
+    const oncl = (e) => {
+        setState(e)
     }
 
     return (
@@ -30,22 +20,12 @@ function Profile() {
                 <div className={styles.greet}>
                     <p>Hello, {loggedIn}!</p>
                 </div>
-                <ProfButtons/>
+                <ProfButtons onclick={oncl}/>
             </div>
             <div className={styles.cn}>
-                <form onSubmit={post} className={styles.inter}>
-                    <div className={styles.text}>
-                        <h2>Заголовок</h2>
-                        <MyInput onChange={(e)=> setTitle(e.target.value)}></MyInput>
-                    </div>
-                    <div className={styles.text}>
-                        <h2>Текст новости</h2>
-                        <textarea onChange={(e)=> setText(e.target.value)}></textarea>
-                    </div>
-                    <div className={styles.btn}>
-                        <MyButton>Добавить</MyButton>
-                    </div>
-                </form>
+                {state==1 && <About/>}
+                {state==2 && <NewPost/>}
+                {state==3 && <TimeRed/>}
             </div>
         </div>
     )

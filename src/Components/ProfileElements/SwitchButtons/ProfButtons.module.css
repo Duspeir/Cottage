@@ -5,7 +5,7 @@
 }
 
 .profOptions{
-    height: 35px;
+    min-height: 35px;
     position: relative;
     color: black;
     background:aliceblue;
@@ -14,7 +14,7 @@
     text-align: left;
     font-family: Gill Sans, sans-serif;
     font-size: 20px;
-    min-width: fit-content;
+    min-width: 220px;
     word-wrap: break-word;
     word-break: break-all;
 }

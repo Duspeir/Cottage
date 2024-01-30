@@ -6,10 +6,9 @@ import News_sec from "../Components/News_Secured/News_sec";
 function News() {
     const [posts, setPosts] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null)
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-      // setTimeout(() => {
         fetch("http://localhost:5001/posts")
         .then(res => {
           if(!res.ok){
@@ -26,7 +25,6 @@ function News() {
           setIsLoading(false)
           setError(err.massage);
         })
-      // }, 500)
     }, []);
 
     return (

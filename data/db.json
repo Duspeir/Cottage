@@ -4,50 +4,61 @@
       "login": "admin",
       "password": "admin",
       "dm": true,
-      "id": 2
+      "id": 2,
+      "name": "Василий",
+      "address": "Вильямса 3"
     },
     {
       "login": "Ada",
       "password": "ada",
       "dm": false,
-      "id": 3
+      "id": 3,
+      "name": "Марина",
+      "address": "Ул. Симулянщика 13"
     }
   ],
   "timetable": [
     {
       "id": 0,
       "name": "Monday",
-      "time": "10:00-12:00"
+      "start": "10:00",
+      "end": "12:00"
     },
     {
       "id": 1,
       "name": "Tuesday",
-      "time": "10:00-12:00"
+      "start": "10:00",
+      "end": "12:00"
     },
     {
       "id": 2,
       "name": "Wednesday",
-      "time": "10:00-12:00"
+      "start": "10:00",
+      "end": "12:00"
     },
     {
       "id": 3,
       "name": "Thursday",
-      "time": "10:00-12:00"
+      "start": "10:00",
+      "end": "12:00"
     },
     {
       "id": 4,
       "name": "Friday",
-      "time": "10:00-12:00"
+      "start": "10:00",
+      "end": "12:00"
     },
     {
       "id": 5,
       "name": "Saturday",
-      "time": "10:00-12:00"
+      "start": "10:00",
+      "end": "12:00"
     },
     {
       "id": 6,
       "name": "Sunday",
-      "time": "10:00-14:00"
+      "start": "10:00",
+      "end": "14:00"
     }
   ],
   "posts": [
