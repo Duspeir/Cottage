@@ -7,7 +7,7 @@ const Time = (props) => {
     <div className={styles.time_cn}>
       <div className={styles.week}>
         <h5 className={styles.title}>{props.post.name}</h5>
-        <p>{props.post.time}</p>
+        <p>{props.post.start}-{props.post.end}</p>
       </div>
     </div>
   )
