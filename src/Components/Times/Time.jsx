@@ -2,7 +2,7 @@ import React from "react";
 import * as styles from './Time.module.css'
 
 const Time = (props) => {
-
+  console.log(props.post)
   return (
     <div className={styles.time_cn}>
       <div className={styles.week}>

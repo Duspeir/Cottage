@@ -8,12 +8,12 @@ import Time from "../Times/time";
 const News_sec = (props) => {
 
   const navigate = useNavigate();
-  const [posts, setPosts] = useState(null);
+  const [time, setTime] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null)
 
   useEffect(() => {
-      fetch("http://localhost:5001/timetable")
+      fetch("http://localhost:8080/api/time")
       .then(res => {
         if(!res.ok){
           throw Error('Could not fetch the data')
@@ -21,7 +21,7 @@ const News_sec = (props) => {
         return res.json();
       })
       .then(data => {
-        setPosts(data)
+        setTime(data)
         setIsLoading(false)
         setError(null)
       })
@@ -30,10 +30,6 @@ const News_sec = (props) => {
         setError(err.massage);
       })
   }, []);
-
-  const handleClick = (cid) => {
-    navigate("/news/" + cid, {replace: true})
-  }
 
   return (
     <div className={styles.news_cn}>
@@ -44,7 +40,7 @@ const News_sec = (props) => {
         <div className={styles.descr}>
             {error && <div className={styles.load}>{ error }</div>}
             {isLoading && <div className={styles.load}>Loading...</div>}
-            {posts && posts.map(post =>
+            {time && time.map(post =>
                 <Time post={post} key={post.id}/>
             )}
         </div>

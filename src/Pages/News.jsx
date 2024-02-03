@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import News_i from "../Components/News_item/News_i";
-import * as styles from './styles/News.module.css'
+import * as styles from './styles/News.module.css';
 import News_sec from "../Components/News_Secured/News_sec";
+// import pool from "../../db";
 
 function News() {
     const [posts, setPosts] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-
     useEffect(() => {
-        fetch("http://localhost:5001/posts")
+        fetch("http://localhost:8080/api/post")
         .then(res => {
           if(!res.ok){
             throw Error('Could not fetch the data')
