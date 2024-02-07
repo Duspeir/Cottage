@@ -1,81 +1,60 @@
 import MyButton from '../../UI/button/MyButton';
-import MyInput from '../../UI/input/MyInput';
 import * as styles from './TimeRed.module.css'
-import { useNavigate } from 'react-router-dom'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Timers from './Timers';
 
 function TimeRed() {
 
-    const [title, setTitle] = useState('')
-    const [text, setText] = useState('')
-    const navigate = useNavigate()
-
+    const [time, setTime] = useState(null)
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null)
     const post = (e) => {
         e.preventDefault();
-        const Post = {title, text};
-
-        fetch('http://localhost:5001/posts', {
-            method: 'POST',
-            headers: {"Content-type": "application/json"},
-            body: JSON.stringify(Post)
-        }).then(()=>{
-            navigate("/news")
+        time.map(post =>{
+            fetch('http://localhost:8080/api/time', {
+                method: 'PUT',
+                headers: {"Content-type": "application/json"},
+                body: JSON.stringify(post)
+            })
         })
+    }
+
+    useEffect(() => {
+        fetch("http://localhost:8080/api/time")
+        .then(res => {
+          if(!res.ok){
+            throw Error('Could not fetch the data')
+          }
+          return res.json();
+        })
+        .then(data => {
+          setTime(data);
+          setIsLoading(false);
+          setError(null);
+        })
+        .catch(err => {
+          setIsLoading(false)
+          setError(err.massage);
+        })
+    }, []);
+
+    const change = (id, st, fin) => {
+        time[id] = {
+            ...time[id],
+            start: st,
+            finish: fin
+        }
     }
 
     return (
         <form onSubmit={post} className={styles.inter}>
-            <h2>Понедельник</h2>
-            <div className={styles.text}>
-                <h3>Начало:</h3>
-                <input className={styles.put} onChange={(e)=> setTitle(e.target.value)}/>
-                <h3>Конец:</h3>
-                <input className={styles.put} onChange={(e)=> setTitle(e.target.value)}/>
-            </div>
-            <h2>Вторник</h2>
-            <div className={styles.text}>
-                <h3>Начало:</h3>
-                <input className={styles.put} onChange={(e)=> setTitle(e.target.value)}/>
-                <h3>Конец:</h3>
-                <input className={styles.put} onChange={(e)=> setTitle(e.target.value)}/>
-            </div>
-            <h2>Среда</h2>
-            <div className={styles.text}>
-                <h3>Начало:</h3>
-                <input className={styles.put} onChange={(e)=> setTitle(e.target.value)}/>
-                <h3>Конец:</h3>
-                <input className={styles.put} onChange={(e)=> setTitle(e.target.value)}/>
-            </div>
-            <h2>Четверг</h2>
-            <div className={styles.text}>
-                <h3>Начало:</h3>
-                <input className={styles.put} onChange={(e)=> setTitle(e.target.value)}/>
-                <h3>Конец:</h3>
-                <input className={styles.put} onChange={(e)=> setTitle(e.target.value)}/>
-            </div>
-            <h2>Пятница</h2>
-            <div className={styles.text}>
-                <h3>Начало:</h3>
-                <input className={styles.put} onChange={(e)=> setTitle(e.target.value)}/>
-                <h3>Конец:</h3>
-                <input className={styles.put} onChange={(e)=> setTitle(e.target.value)}/>
-            </div>
-            <h2>Суббота</h2>
-            <div className={styles.text}>
-                <h3>Начало:</h3>
-                <input className={styles.put} onChange={(e)=> setTitle(e.target.value)}/>
-                <h3>Конец:</h3>
-                <input className={styles.put} onChange={(e)=> setTitle(e.target.value)}/>
-            </div>
-            <h2>Воскресенье</h2>
-            <div className={styles.text}>
-                <h3>Начало:</h3>
-                <input className={styles.put} onChange={(e)=> setTitle(e.target.value)}/>
-                <h3>Конец:</h3>
-                <input className={styles.put} onChange={(e)=> setTitle(e.target.value)}/>
-            </div>
+            {error && <div className={styles.load}>{ error }</div>}
+            {isLoading && <div className={styles.load}>Loading...</div>}
+            {time && time.map(time =>
+                <Timers post={time} key={time.id} select={change}/>
+            )}
             <div className={styles.btn}>
-                <MyButton>Добавить</MyButton>
+                <MyButton method='submit'>Изменить</MyButton>
             </div>
         </form>
     )

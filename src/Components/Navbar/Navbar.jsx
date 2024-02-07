@@ -15,7 +15,8 @@ function Navbar(props) {
           {/* <Link to="" className={style.navbar_link}>Главная</Link> */}
           <Link to="/news" className={style.navbar_link}>Новости</Link>
           <Link to="/garden" className={style.navbar_link}>Гербарий</Link>
-          {loggedIn && <Link to="/profile" className={style.navbar_link}>Профиль</Link>}
+          {/* {loggedIn && <Link to="/profile" className={style.navbar_link}>Профиль</Link>} */}
+          <Link to="/profile" className={style.navbar_link}>Профиль</Link>
           {loggedIn? <Link to="/authorisation" className={style.navbar_link}>Выйти</Link>
                    : <Link to="/authorisation" className={style.navbar_link}>Войти</Link>}
         </div>
