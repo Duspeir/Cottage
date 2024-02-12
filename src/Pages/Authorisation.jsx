@@ -3,14 +3,21 @@ import { useContext, useEffect, useState } from "react";
 import Login from "../Components/Autorize/login";
 import Registration from "../Components/Autorize/registration";
 import { AuthContext } from "../context";
+import Cookies from "universal-cookie";
 
 function Authorisation() {
   const [log, setLog] = useState(true)
-  const {setLoggedIn, setIsDm} = useContext(AuthContext)
+  const cookie = new Cookies();
+  // const {setLoggedIn, setIsDm} = useContext(AuthContext)
   useEffect(()=>{
-    setLoggedIn(null)
-    setIsDm(false)
+    if(cookie.get('au')){
+      cookie.remove('au')
+    }
   }, [])
+
+  // function change_state(st) {
+  //   setLog(st);
+  // }
 
   return (
       <div className={styles.entry_container}>

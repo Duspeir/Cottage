@@ -1,5 +1,6 @@
 .container{
     width: calc(95% - 300px);
+    padding-bottom: 30px;
 }
 
 .load{

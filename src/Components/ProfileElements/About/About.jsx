@@ -1,32 +1,32 @@
 import { useState, useEffect, useContext } from 'react';
 import * as styles from './About.module.css'
-import { AuthContext } from '../../../context';
-import { useNavigate } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 function About() {
     const [data, setData] = useState(null)
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null)
-    const {loggedIn, isDm} = useContext(AuthContext)
-    const navigate = useNavigate()
+    const cookie = new Cookies();
+    // const {loggedIn, isDm} = useContext(AuthContext)
 
     useEffect(() => {
-        fetch("http://localhost:5001/users?login=" + loggedIn)
-        .then(res => {
-          if(!res.ok){
-            throw Error('Could not fetch the data')
-          }
-          return res.json();
-        })
-        .then(data => {
-          setData(data)
-          setIsLoading(false)
-          setError(null)
-        })
-        .catch(err => {
-          setIsLoading(false)
-          setError(err.massage);
-        })
+      const user = cookie.get('au');
+      fetch("http://localhost:8080/api/user/" + user.id)
+      .then(res => {
+        if(!res.ok){
+          throw Error('Could not fetch the data')
+        }
+        return res.json();
+      })
+      .then(data => {
+        setData(data)
+        setIsLoading(false)
+        setError(null)
+      })
+      .catch(err => {
+        setIsLoading(false)
+        setError(err.massage);
+      })
     }, []);
 
     return (

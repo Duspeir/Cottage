@@ -4,7 +4,7 @@ import * as styles from './NewPost.module.css'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 
-function NewPost() {
+function NewPost(props) {
 
     const [title, setTitle] = useState('')
     const [text, setText] = useState('')
@@ -12,9 +12,10 @@ function NewPost() {
 
     const post = (e) => {
         e.preventDefault();
-        const Post = {title, text};
+        const user_id = props.user.id;
+        const Post = {title, text, user_id};
 
-        fetch('http://localhost:5001/posts', {
+        fetch('http://localhost:8080/api/post', {
             method: 'POST',
             headers: {"Content-type": "application/json"},
             body: JSON.stringify(Post)

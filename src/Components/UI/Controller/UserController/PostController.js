@@ -25,8 +25,8 @@ class postController {
     async getOnePost(req, res){
         try {
             const { id } = req.params;
-            const newPost = await pool.query('SELECT * FROM posts WHERE id = $1', [id])
-            res.json(newPost.rows);
+            const newPost = await pool.query('SELECT * FROM posts WHERE id = $1', [id]);
+            res.json(newPost.rows[0]);
         } catch (error) {
             res.status(500).json(error)
         }

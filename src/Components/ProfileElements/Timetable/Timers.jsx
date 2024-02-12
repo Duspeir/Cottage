@@ -15,7 +15,6 @@ const week = {
 }
 
 const Timers = (props) => {
-    new Date().toLocaleTimeString;
     const [start, onStart] = useState(props.post.start);
     const [finish, onFinish] = useState(props.post.finish);
     const id = props.post.id;

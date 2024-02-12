@@ -2,17 +2,18 @@ import * as styles from './styles/Post.module.css'
 import MyButton from '../Components/UI/button/MyButton'
 import { useState, useEffect, useContext } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import { AuthContext } from '../context';
+import Cookies from 'universal-cookie';
 
 const Post = () => {
   const [posts, setPosts] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
+  const [user, setUser] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
-  const {isDm} = useContext(AuthContext)
+  // const {isDm} = useContext(AuthContext)
   useEffect(() => {
-    fetch("http://localhost:5001/posts/" + id)
+    fetch("http://localhost:8080/api/post/" + id)
     .then(res => {
       if(!res.ok){
         throw Error('Could not fetch the data')
@@ -23,6 +24,8 @@ const Post = () => {
       setPosts(data)
       setIsLoading(false)
       setError(null)
+      const cookie = new Cookies();
+      setUser(cookie.get('au').role)
     })
     .catch(err => {
       setIsLoading(false)
@@ -32,7 +35,7 @@ const Post = () => {
 
   const del = (e) => {
       e.preventDefault();
-      fetch('http://localhost:5001/posts/' + posts.id, {
+      fetch('http://localhost:8080/api/post/' + posts.id, {
           method: 'DELETE'
       })
       .then(() => {
@@ -52,9 +55,10 @@ const Post = () => {
               <div className={styles.text_body}>
                 <p>{ posts.text }</p>
               </div>
-              {isDm &&  <div className={styles.btn}>
-                          <MyButton onClick={del}>Удалить</MyButton>
-                        </div>}
+              {user==1 &&
+                  <div className={styles.btn}>
+                    <MyButton onClick={del}>Удалить</MyButton>
+                  </div>}
             </div>
           }
       </div>
