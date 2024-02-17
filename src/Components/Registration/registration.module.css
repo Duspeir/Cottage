@@ -1,0 +1,98 @@
+.entry_container{
+    min-width: 370px;
+    width: 50%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 30px;
+    z-index: 2;
+}
+
+.head{
+    margin-top: 20px;
+}
+
+.err{
+    border: 2px red solid;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+span:has(> .select){
+    width: 85%;
+    position: relative;
+}
+
+.select{
+    width: 200px;
+    min-width: 200px;
+    appearance: none;
+    padding: 0.5em 1em;
+    font-size: 20px;
+    cursor: pointer;
+    border: 2px solid forestgreen;
+    border-radius: 0.15em;
+    transition: .25s all ease;
+}
+
+.select:hover{
+    background-color: rgb(248, 255, 253);
+}
+
+span:has(> .select)::after {
+  content: '\25BC';
+  color: black;
+  position: absolute;
+  top: 0.8em;
+  left: 170px;
+  pointer-events: none;
+  font-size: 18px;
+}
+
+span:has(> .select):hover::after {
+  color: #f36412;
+}
+
+/* select {
+  appearance: none;
+  flex: 1;
+  padding: 0 1em;
+  font-size: 20px;
+  background-image: none;
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+span:has(> .select) {
+  position: relative;
+  display: flex;
+  width: 250px;
+  height: 3em;
+  border-radius: .25em;
+  overflow: hidden;
+}
+
+span:has(> .select)::after {
+  content: '\25BC';
+  color: rgb(230, 243, 255);
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 14px;
+  transition: .25s all ease;
+  pointer-events: none;
+  font-size: 18px;
+}
+
+span:has(> .select):hover::after {
+  color: #f36412;
+}
+
+.select:focus{
+  background-color:rgb(246, 255, 246);
+}  */

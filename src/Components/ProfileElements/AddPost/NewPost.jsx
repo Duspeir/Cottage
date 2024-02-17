@@ -9,7 +9,6 @@ function NewPost(props) {
     const [title, setTitle] = useState('')
     const [text, setText] = useState('')
     const navigate = useNavigate()
-
     const post = (e) => {
         e.preventDefault();
         const user_id = props.user.id;

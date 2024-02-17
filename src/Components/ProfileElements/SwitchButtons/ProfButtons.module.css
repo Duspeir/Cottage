@@ -8,15 +8,21 @@
     min-height: 35px;
     position: relative;
     color: black;
-    background:aliceblue;
+    background:rgb(107, 186, 255);
     border: none;
     cursor: pointer;
     text-align: left;
     font-family: Gill Sans, sans-serif;
     font-size: 20px;
-    min-width: 220px;
+    min-width: 260px;
     word-wrap: break-word;
     word-break: break-all;
+    border-bottom: 1px solid black;
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+    transition: 0.3s;
+    text-shadow: 0 0 0 grey, 1px 2px 0 grey, 1px 1px 0 grey,
+        5px 10px 20px black;
 }
 
 .profOptions:hover{

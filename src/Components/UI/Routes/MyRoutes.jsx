@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from "../../../Pages/Home";
 import Notfound from "../../../Pages/Notfound";
 import News from "../../../Pages/News";
@@ -7,6 +7,7 @@ import Authorisation from "../../../Pages/Authorisation";
 import Post from "../../../Pages/Post";
 import Catalog from "../../../Pages/Catalog";
 import Profile from "../../../Pages/Profile";
+import Cookies from "universal-cookie";
 
 const MyRoutes = () => {
     return(

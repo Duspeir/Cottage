@@ -4,6 +4,8 @@ import { BrowserRouter } from "react-router-dom"
 import MyRoutes from "./Components/UI/Routes/MyRoutes"
 import { useState } from "react"
 import { AuthContext } from "./context"
+import { CookiesProvider } from "react-cookie"
+
 
 function App() {
   // const [loggedIn, setLoggedIn] = useState(null)
@@ -19,8 +21,10 @@ function App() {
     //   setIsDm
     // }}>
       <BrowserRouter>
-        <Navbar/>
-        <MyRoutes/>
+        <CookiesProvider>
+          <Navbar/>
+          <MyRoutes/>
+        </CookiesProvider>
       </BrowserRouter>
     // </AuthContext.Provider>
   )

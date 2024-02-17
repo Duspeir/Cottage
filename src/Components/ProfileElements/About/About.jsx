@@ -2,16 +2,15 @@ import { useState, useEffect, useContext } from 'react';
 import * as styles from './About.module.css'
 import Cookies from 'universal-cookie';
 
-function About() {
+function About(user) {
     const [data, setData] = useState(null)
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null)
-    const cookie = new Cookies();
+    // const cookie = new Cookies();
     // const {loggedIn, isDm} = useContext(AuthContext)
 
     useEffect(() => {
-      const user = cookie.get('au');
-      fetch("http://localhost:8080/api/user/" + user.id)
+      fetch("http://localhost:8080/api/user/" + user.user.id)
       .then(res => {
         if(!res.ok){
           throw Error('Could not fetch the data')
@@ -28,7 +27,6 @@ function About() {
         setError(err.massage);
       })
     }, []);
-
     return (
         <div className={styles.cn}>
           {error && <div className={styles.load}>{ error }</div>}

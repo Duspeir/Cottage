@@ -27,7 +27,7 @@ function Login(props) {
         return res.json();
       })
       .then(data => {
-        cookie.set('au', data['user'], {maxAge: 60*60})
+        cookie.set('au', data['user'], {maxAge: 60*60*24})
         navigate('/profile')
       })
     }
